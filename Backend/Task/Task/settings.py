@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-o6o+a05k)w+pkp6lguc-*6s1&n1+i2)a0hm@!a&8mlmj6apo+!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -124,10 +124,10 @@ USE_L10N = True
 
 USE_TZ = True
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = False
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000', 'http://localhost:3001', 'http://127.0.0.1:8000', 'http://system.hoodeg.com', 'http://localhost:8000'
-)
+# CORS_ALLOW_CREDENTIALS = False
+# CORS_ORIGIN_WHITELIST = (
+#     'http://localhost:3000', 'http://localhost:3001', 'http://127.0.0.1:8000', 'http://system.hoodeg.com', 'http://localhost:8000'
+# )
 
 
 # Static files (CSS, JavaScript, Images)

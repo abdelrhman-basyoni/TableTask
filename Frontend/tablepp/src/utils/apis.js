@@ -2,7 +2,7 @@
 import axios from 'axios';
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 axios.defaults.xsrfCookieName = 'csrftoken';
-axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = false;
 axios.defaults.adapter = require('axios/lib/adapters/http');
 const local = 'http://127.0.0.1:8000/'; //if we are working in the dev server
 const dev = 'unkown'; //if we are working in the production server
