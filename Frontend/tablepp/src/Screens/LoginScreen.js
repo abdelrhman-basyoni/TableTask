@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Cookies from 'universal-cookie';
+import jwtDecode from 'jwt-decode'
 import '../css/LoginScreen.css'
-import { post, get } from '../utils/apis'
-const LoginScreen = () => {
+import { post, setAuthorizationToken } from '../utils/apis'
+const LoginScreen = ({history}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -23,29 +25,35 @@ const LoginScreen = () => {
         }
         console.log(user);
         const body = JSON.stringify(user);
-        const config = {
-            headers: {
-                "content-type": "multipart/form-data"
-
-            }
-        }
-
-
-        // try {
-        //   post("api/token/",body).catch(err => {
-        //       console.log(err)
-        //       console.log(err.request)
-        //       console.log(err.response)
-        //       console.log(err.message)
-        //   })
-        get('table/').then(res => {
+       try {
+        post('api/token/', bodyFormdata).then(res => {
             console.log(res)
+            let cookies = new Cookies();
+            let Token = res.data.access
+            cookies.set('TOKEN', Token);
+            setAuthorizationToken(Token)
+            localStorage.setItem('authToken',res.data.access)
+            history.push("/");
         }).catch(err => {
             console.log(err)
             console.log(err.request)
             console.log(err.response)
             console.log(err.message)
+            setError(`${err}`);
+            setTimeout(() => {
+                setError("");
+            }, 5000);
+
         })
+           
+       } catch (error) {
+        setError(`${error}`);
+            setTimeout(() => {
+                setError("");
+            }, 5000);
+           
+       }
+        
         // axios.post("api/token/",bodyFormdata,config).them(res =>{
         //     console.log(res)
         // })

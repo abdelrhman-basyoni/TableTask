@@ -17,6 +17,7 @@ const domain = document.location.hostname;
 //to config the json method
 
 export function setAuthorizationToken(token) {
+    console.log(token)
     
     if (token !== undefined) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;

@@ -7,7 +7,7 @@ from rest_framework import permissions
 from .serializers import TableSerializer
 # Create your views here.
 class TableData(APIView):
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.IsAuthenticated]
 
 
     def get(self,request):
