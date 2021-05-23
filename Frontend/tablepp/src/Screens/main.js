@@ -32,10 +32,21 @@ const Main = () => {
             console.log(err.message)
         })
     }, [])
+    const handlechange = (e) =>{
+        // e.preventDefault();
+        let newdata = Tabledata
+        console.log(newdata)
+        newdata[e.target.id].input = e.target.value
+        newdata[e.target.id].precent = parseInt((e.target.value / newdata[e.target.id].numbers)*100)
+        setTabledata(newdata)
+        // console.log(Tabledata)
+        
+
+    }
 
     return (
         <div>
-            <Table tableData={Tabledata} />
+            <Table tableData={Tabledata} handlechange={handlechange}  />
         </div>
     )
 }

@@ -13,10 +13,6 @@ const Table = () => {
                     input: 0,
                     precent: 0,
                 })
-
-
-
-
             });
             console.log(newtable)
             setTabledata(newtable)
@@ -37,28 +33,32 @@ const Table = () => {
         newdata[e.target.id].input = e.target.value
         newdata[e.target.id].precent = parseInt((e.target.value / newdata[e.target.id].numbers)*100)
         setTabledata(newdata)
-        console.log(Tabledata)
+        // console.log(Tabledata)
         
 
     }
-    const rows = []
-    // for (let i=0;i++;i<Tabledata.length){}
-     Tabledata.map((element, index) => {
+    var rows = []
+    Tabledata.map((element, index) => {
 
         rows.push(
             <tr>
-                <td><input type='numbers' id={`${index}`} onChange={handlechange} value={Tabledata[index].input}></input></td>
-                <td>{Tabledata[index].numbers}</td>
-                <td>{Tabledata[index].precent}hi</td>
+                <td><input type='numbers' id={`${index}`} onChange={handlechange} value={element.input}></input></td>
+                <td>{element.numbers}</td>
+                <td>{element.precent}hi</td>
             </tr>
         )
 
        
     })
+    useEffect(() => {
+      
+    }, [Tabledata])
+    // for (let i=0;i++;i<Tabledata.length){}
+    
 
     return (
         <div>
-            <table class="table table-striped">
+            <table className="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">input</th>
@@ -70,14 +70,17 @@ const Table = () => {
                     {
                     rows
                         // Tabledata.map((element, index) => {
-                        //     console.log(Tabledata)
+                        //     console.log(element)
 
                         //     return (
-                        //         <tr>
-                        //             <td><input type='numbers' id={`${index}`} onChange={handlechange} value={Tabledata.input}></input></td>
+                                
+                                
+                        //         <tr key={`${index}`}>
+                        //             <td><input type='numbers' id={`${index}`} onChange={handlechange} value={Tabledata.input}/></td>
                         //             <td>{element.numbers}</td>
                         //             <td>{element.precent}hi</td>
                         //         </tr>
+                               
 
                         //     )
                         // })
