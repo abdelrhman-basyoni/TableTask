@@ -1,2 +1,5 @@
 1-inside the tablepp run cmd and type 'npm install'
 2- then run 'npm start dev'
+3- login :
+	username:admin
+	password:admin
