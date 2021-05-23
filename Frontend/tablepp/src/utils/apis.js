@@ -11,12 +11,7 @@ const dev = 'unkown'; //if we are working in the production server
 const relative = "/";
 const domain = document.location.hostname;
 
-// let url = domain.includes("localhost")?  local : relative;
-// if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development'){
-//     url = local;
-// }
 
-//check if there is a token or not
 let cookeis = new Cookies()
 if (cookeis.get('TOKEN')){
   axios.defaults.headers.common['Authorization'] = `Bearer ${cookeis.get('TOKEN')}`;

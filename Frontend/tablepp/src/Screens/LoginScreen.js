@@ -25,7 +25,6 @@ const LoginScreen = ({history}) => {
         const body = JSON.stringify(user);
        try {
         post('api/token/', bodyFormdata).then(res => {
-            console.log(res)
             let cookies = new Cookies();
             let Token = res.data.access
             cookies.set('TOKEN', Token);
@@ -34,9 +33,6 @@ const LoginScreen = ({history}) => {
             history.push("/");
         }).catch(err => {
             console.log(err)
-            console.log(err.request)
-            console.log(err.response)
-            console.log(err.message)
             setError(`${err}`);
             setTimeout(() => {
                 setError("");
