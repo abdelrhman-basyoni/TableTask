@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Cookies from 'universal-cookie';
-import jwtDecode from 'jwt-decode'
 import '../css/LoginScreen.css'
 import { post, setAuthorizationToken } from '../utils/apis'
 const LoginScreen = ({history}) => {
@@ -54,44 +52,12 @@ const LoginScreen = ({history}) => {
            
        }
         
-        // axios.post("api/token/",bodyFormdata,config).them(res =>{
-        //     console.log(res)
-        // })
-
-        //  console.log(data);
-        //  .then( function (res) {
-        //      console.log(res);
-        //  }).catch(err =>{
-        //      console.log(err.response)
-        //      console.log(err.request)
-        //  })
-        // console.log(axiosresponse);
-        // const { data } = await axios.post("api/token/", bodyFormdata, config);
-        // console.log(data);
-        // if (data.status === 0) {
-        //     setError(data.message);
-        //     setTimeout(() => {
-        //         setError("");
-        //     }, 5000);
-        // } else {
-        //     localStorage.setItem("authToken", data.data.token);
-        //     localStorage.setItem("username",data.data.username);
-        //     // history.push("/join");
-        // }
-
-        // } catch (error) {
-        //     setError(`${error}`);
-        //     setTimeout(() => {
-        //         setError("");
-        //     }, 5000);
-        // }
-
-
+       
 
     }
 
     return (
-        <div style={{ margin: 'auto' }}>
+        <div style={{ marginLeft:'40%',marginTop:'10%'}}>
             <form onSubmit={loginHandler} className="login-screen__form">
                 <h3 className="login-screen__title">Login</h3>
                 {error && <span className="error-message">{error}</span>}
