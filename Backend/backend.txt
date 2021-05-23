@@ -1,0 +1,2 @@
+1- inside Task 'install the rquiremnts using ' pip install -r req.txt'
+2- run 'python manage.py runserver'
